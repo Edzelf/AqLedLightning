@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aquarium Led Verlichting</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+  </head>
+  <body onload="loadfunc()">
+    <ul> 
+      <li><a class='pull-left' href='#'>AqLedVerl</a></li> 
+      <li><a class='pull-left active' href='index.html'>Home</a></li> 
+      <li><a class='pull-left' href='logging.html'>Logging</a></li> 
+      <li><a class='pull-left' href='about.html'>About</a></li> 
+     </ul>
+    <br><br><br>
+    <div style="text-align: center;">
+      <b>Aquarium Led Verlichting</b><br><br>
+      <b>White&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Color</b><br>
+      00:00<input type="range" class="slider" id="w0" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c0" oninput=sfunc(this)><br>
+      01:00<input type="range" class="slider" id="w1" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c1" oninput=sfunc(this)><br>
+      02:00<input type="range" class="slider" id="w2" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c2" oninput=sfunc(this)><br>
+      03:00<input type="range" class="slider" id="w3" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c3" oninput=sfunc(this)><br>
+      04:00<input type="range" class="slider" id="w4" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c4" oninput=sfunc(this)><br>
+      05:00<input type="range" class="slider" id="w5" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c5" oninput=sfunc(this)><br>
+      06:00<input type="range" class="slider" id="w6" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c6" oninput=sfunc(this)><br>
+      07:00<input type="range" class="slider" id="w7" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c7" oninput=sfunc(this)><br>
+      08:00<input type="range" class="slider" id="w8" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c8" oninput=sfunc(this)><br>
+      09:00<input type="range" class="slider" id="w9" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c9" oninput=sfunc(this)><br>
+      10:00<input type="range" class="slider" id="w10" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c10" oninput=sfunc(this)><br>
+      11:00<input type="range" class="slider" id="w11" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c11" oninput=sfunc(this)><br>
+      12:00<input type="range" class="slider" id="w12" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c12" oninput=sfunc(this)><br>
+      13:00<input type="range" class="slider" id="w13" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c13" oninput=sfunc(this)><br>
+      14:00<input type="range" class="slider" id="w14" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c14" oninput=sfunc(this)><br>
+      15:00<input type="range" class="slider" id="w15" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c15" oninput=sfunc(this)><br>
+      16:00<input type="range" class="slider" id="w16" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c16" oninput=sfunc(this)><br>
+      17:00<input type="range" class="slider" id="w17" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c17" oninput=sfunc(this)><br>
+      18:00<input type="range" class="slider" id="w18" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c18" oninput=sfunc(this)><br>
+      19:00<input type="range" class="slider" id="w19" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c19" oninput=sfunc(this)><br>
+      20:00<input type="range" class="slider" id="w20" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c20" oninput=sfunc(this)><br>
+      21:00<input type="range" class="slider" id="w21" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c21" oninput=sfunc(this)><br>
+      22:00<input type="range" class="slider" id="w22" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c22" oninput=sfunc(this)><br>
+      23:00<input type="range" class="slider" id="w23" oninput=sfunc(this)>&nbsp;
+      <input type="range" class="slider" id="c23" oninput=sfunc(this)><br><br>
+      Overrule<input type="range" min="-1" class="slider" id="wovr" oninput=sfunc(this)>&nbsp;
+      <input type="range" min="-1" class="slider" id="covr" oninput=sfunc(this)><br><br>
+      <button id="bset" onclick="httpSet()">SET</button>
+      <br><br>
+      <input size="50" id="resultstr" value="Waiting for a command...."><br>
+    </div>
+    <script>
+      function sfunc(a)
+      {
+        if ( ( wovr.value < 0 ) || ( covr.value < 0 ) )
+        {
+          bset.innerHTML = 'SET';
+          resultstr.value = a.value ;
+        }
+        else
+        {
+          bset.innerHTML = "OVERRULE" ;
+          resultstr.value = a.value ;
+        }
+      }
+
+// Set configuration.. The parameter string will contain the values of the
+// 48 slider values.  w0,c0,w1,c1,....
+// If Overrule values are set, these values will be sent
+      function httpSet()
+      {
+       var theUrl = "/setconf?setting=" ;
+       var xhr = new XMLHttpRequest() ;
+       var i ;
+       var sliderid ;
+       var sldr ;
+
+       if ( ( wovr.value >= 0 ) && ( covr.value >= 0 ) )
+       {
+         theUrl = "/overrule?setting=" +
+                  wovr.value +
+                  "," +
+                  covr.value +
+                  "," ;
+       }
+       else
+       {
+        for ( i = 0 ; i < 24 ; i++ )
+        {
+        sliderid = "w" + i ;
+         sldr = document.getElementById(sliderid) ;
+         theUrl += sldr.value ;
+         theUrl += "," ;
+         sliderid = "c" + i ;
+         sldr = document.getElementById(sliderid) ;
+         theUrl += sldr.value ;
+         theUrl += "," ;
+        }
+       }
+       xhr.onreadystatechange = function() {
+        if ( xhr.readyState == XMLHttpRequest.DONE )
+        {
+         resultstr.value = xhr.responseText ;
+        }
+       }
+       xhr.open ( "GET", theUrl, false ) ;
+       xhr.send() ;
+      }
+
+
+      function httpGetConf()
+      {
+       var theUrl = "/getconf" ;
+       var xhr = new XMLHttpRequest() ;
+       var settings ;
+       var i, j ;
+       var sliderid ;
+       var sldr ;
+
+       xhr.onreadystatechange = function() {
+        if ( xhr.readyState == XMLHttpRequest.DONE )
+        {
+         settings = xhr.responseText.split(',') ;
+         for ( i = 0 ; i < 24 ; i++ )
+         {
+           j = i + 1 ;
+           sliderid = "w" + i ;
+           sldr = document.getElementById(sliderid) ;
+           sldr.value = settings[i*2] ;
+           sliderid = "c" + i ;
+           sldr = document.getElementById(sliderid) ;
+           sldr.value = settings[i*2+1] ;
+         }
+        }
+       }
+       xhr.open ( "GET", theUrl, false ) ;
+       xhr.send() ;
+      }
+
+      function loadfunc()
+      {
+        httpGetConf()              // Get configuration
+      }
+    </script>
+  </body>
+</html>
